@@ -6,13 +6,12 @@ const {Server} = require('socket.io');
 const cors = require('cors');
 
 app.use(cors());
-const PORT = process.env.PORT || 8080;
 
 const server = http.createServer(app);
 
 const io = new Server(server,{
     cors:{
-        origin:"https://two-player-online-matching-game.vercel.app",
+        origin:"http://localhost:3000",
         methods:["GET", "POST"],
     },
 });
@@ -133,6 +132,6 @@ io.on("connection",(socket)=>{
     })
     
 })
-server.listen(PORT,()=>{
+server.listen(3001,()=>{
     console.log("SERVER IS RUNNING");
 })
